@@ -13,7 +13,13 @@ This is intended to help beginners understand some basic to intermediate concept
 I welcome all contributions! Just fork the respository, take a look at the issues, and submit a PR for each issue you work on.  Don't forget to put the issue # in your PR!
 
 
-Note: This repository is meant to be mostly empty so it doesn't give away any answers.  It does, however, give a lot of hints on how to complete the project. :)
+> Note: This repository is meant to be mostly empty so it doesn't give away any answers.  It does, however, give a lot of hints on how to complete the project. :)
 
 
 I believe that practice doesn't make perfect, but it does make you a heck of a lot better than you were before. So please give it a try, and don't give up!
+
+### To get started:
+
+First, fork the repository by clicking the "Fork" button at the top right of the page.
+
+Next, come back to this repository and take a look at the Issues page.  Start with Issue #1, and once you're finished submit your Pull Request.  Then move onto Issue #2.  Then, just repeat this process until you've completed all the issues!

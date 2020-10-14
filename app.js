@@ -38,5 +38,17 @@
 
 // Format date
 // - Format: YYYY-MM-DD @ HH:MM 
+function dateFromat(date) 
+{
+    let a = new Date(Date.now()).toLocaleString();
+    console.log(`Current timestamp: ${a}.`);
+}
+
+function dateSort(date)
+{
+    const sortedDate = date
+    sortedDate.sort();
+    console.log(sortedDate);
+}
 // Hint: Use template strings to format result
 

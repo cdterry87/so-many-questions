@@ -18,20 +18,22 @@
             <div class="title has-text-centered">
               Ask you questions below!
             </div>
-            <div class="field has-addons">
-              <div class="control is-expanded">
-                <input class="input" type="text" placeholder="Hint: Only ask yes/no questions!">
+            <div id="errorOutput" class="has-text-centered has-text-danger mb-3"></div>
+            <form id="questionForm">
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input id="question" class="input" type="text" placeholder="Hint: Only ask yes/no questions!">
+                </div>
+                <div class="control">
+                  <input type="submit" class="button is-primary" value="Submit!">
+                </div>
               </div>
-              <div class="control">
-                <button class="button is-primary">
-                  Submit!
-                </button>
-              </div>
-            </div>
+            </form>
             <hr>
-            <div class="has-text-centered">
+            <div id="questionResponse" class="has-text-centered">
               The answer to your question will appear here!
             </div>
+            <div id="answerResponse" class="is-size-3 has-text-centered"></div>
           </div>
           <h3 class="has-text-centered is-size-3 has-text-weight-bold mb-4">
             Previous Responses

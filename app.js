@@ -7,24 +7,37 @@
 // - Create an object for the response with the following properties: { question, answer, liked, date }
 // - Save to local storage (call)
 // - Render list of responses function (call)
-
+var form = document.getElementById("questions");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
 
 // Validate form input
 // - Input cannot be blank, must contain at least 3 words, and must end with a ?
 // - Return true or false if submit was valid or not
-function validateInput() {
+function validate() {
     const buttonElement = document.getElementById('submit');
     var questionElement = document.getElementById('submitData').value;
+    errorMsg = "Please type a valid question below, and don't forget the '?' at the end!"
+
     buttonElement.addEventListener('click', function(event) {
-        console.log(questionElement.length);
         if (questionElement.length < 3) {
+            // add error for value less that 3.
             console.log('value is less than 3');
-           // add error for value less that 3
-        }
-        if (questionElement == "") {
+            document.getElementById("error").innerHTML = errorMsg;
+            return false;
+        }else if (questionElement.value == "") {
+            // add error for blank data.
             console.log('value is empty');
-            // add error for blank data
+            document.getElementById("error").innerHTML = errorMsg;
+            return false;
+        } else if (questionElement.endsWith("?") == false) {
+            // add error for questions not ending with question mark.
+            console.log('value is not a question.');
+            document.getElementById("error").innerHTML = errorMsg;
+            return false;
         }
+        document.getElementById("submitData").value='';
+        return true;
     });
 }
 
@@ -54,4 +67,3 @@ function validateInput() {
 // Format date
 // - Format: YYYY-MM-DD @ HH:MM 
 // Hint: Use template strings to format result
-

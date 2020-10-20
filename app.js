@@ -1,4 +1,11 @@
 // Define an array of responses here
+let responses = [
+    'Yes, absolutely!',
+    'Most definitely not!', 
+    'It is unlikely.',
+    'It seems likely.',
+    'Not sure. Try again later.',
+];
 
 
 // Handle the form submission
@@ -36,7 +43,6 @@ function validate() {
             document.getElementById("error").innerHTML = errorMsg;
             return false;
         }
-        document.getElementById("submitData").value='';
         return true;
     });
 }
@@ -44,7 +50,14 @@ function validate() {
 
 // Get a random answer
 // - Define your random array of answers in this function and return the random answer
+function randomAnswer() {
+    document.getElementById("userQuestion").innerHTML = document.getElementById("submitData").value;
+    document.getElementById("submitData").value = "";
+    var randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    var response = document.getElementById("answer").innerText = randomResponse;
 
+    return response;
+}
 
 // Render answer below the form
 

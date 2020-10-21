@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
 </head>
 <body>
-  <form name="questions" id="questions" action="" method="post" onSubmit="return validate();">
+  
     <h1 class="has-text-centered is-size-1 has-text-weight-bold mb-4">So Many Questions!</h1>
     <div class="columns">
       <div class="column is-half is-offset-one-quarter">
@@ -18,16 +18,18 @@
           <div class="content" id="questionError">
             <p class="help is-danger" align="center" id="error"></p>
           </div>
-          <div class="field has-addons">
-            <p class="control is-expanded">
-              <input id="submitData" class="input" type="text" placeholder="Hint: Only ask yes/no questions!">
-            </p>
-            <p class="control">
-              <button class="button is-info" id="submit" onClick="randomAnswer();">
-                Submit!
-              </button>
-            </p>
-          </div>
+          <form name="questions" id="questions" action="" method="post">
+            <div class="field has-addons">
+              <p class="control is-expanded">
+                <input id="submitData" class="input" type="text" placeholder="Hint: Only ask yes/no questions!">
+              </p>
+              <p class="control">
+                <button class="button is-info" id="submit">
+                  Submit!
+                </button>
+              </p>
+            </div>
+          </form>
           <div class="container">
             <hr>
               <h2 class="subtitle" align="center">
@@ -48,12 +50,12 @@
     </div>
     <div class="column is-half is-offset-one-quarter">
       <div class="container">
-        <h2 class="subtitle" align="center">
+        <h2 class="subtitle" align="center" id="prevResponses">
           Your previous responses will appear here!
         </h2>
       </div>
     </div>
-  </form>
+  
   <script src="./app.js"></script>
 </body>
 </html>

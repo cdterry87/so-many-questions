@@ -23,7 +23,17 @@ submit.addEventListener('click', function(event) {
 });
 
 // - Create an object for the response with the following properties: { question, answer, liked, date }
+let questionBlock = {
+    question: question,
+    answer: response,
+    liked: "liked",
+    date: Date.now()
+};
+
 // - Save to local storage (call)
+questions.push(questionBlock);
+localStorage.setItem('ListOfQuestions', JSON.stringify(questions) );
+
 // - Render list of responses function (call)
 
 

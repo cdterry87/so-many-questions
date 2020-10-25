@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function(){
     // hide the error message element
     document.getElementById("error-message").style.display = "none";
 
-    // call the validate form function
+    // call the validateQuestion function
     let validatedQuestion = validateQuestion();
 
-    // if it is a validate question
+    // if it is a validated question
     if (validatedQuestion) {
 
-      // toggle the different buttons
+      // toggle the different buttons (clear or send)
       let buttonSwitch = setButton();
 
       // if true, then create the object
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let formattedQuestion = validatedQuestion.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
 
         // create the object to be stored
-        let questionCard = new ResponseCard(validatedQuestion, newAnswer, timeStamp);
+        let questionCard = new ResponseCard(formattedQuestion, newAnswer, timeStamp);
 
         // push new object to the array
         responseArray.push(questionCard);

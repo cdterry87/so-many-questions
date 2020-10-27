@@ -1,5 +1,5 @@
 // Define an array of responses here
-let responses = [
+const responses = [
     'Yes, absolutely!',
     'Most definitely not!', 
     'It is unlikely.',
@@ -9,7 +9,7 @@ let responses = [
 
 // Handle the form submission
 // - Prevent page reload on submit
-var form = document.getElementById("questions");
+const form = document.getElementById("questions");
 function handleForm(event) { event.preventDefault(); } 
 form.addEventListener('submit', handleForm);
 
@@ -19,49 +19,51 @@ submit.addEventListener('click', function(event) {
     if ( validate() ) {
         randomAnswer();
     }
-    document.forms[0].reset();
+    document.getElementById("questions").reset();
 });
 
 // - Create an object for the response with the following properties: { question, answer, liked, date }
-let questionBlock = {
-    question: question,
-    answer: response,
-    liked: "liked",
-    date: Date.now()
+const questionObject = {
+    "question": document.getElementById('submitData').value,
+    "answer": document.getElementById("answer").innerText,
+    "liked": false,
+    "date": Date.now()
 };
 
+function storeQuestion(input) {
+    localStorage.setItem('ListOfQuestions', JSON.stringify(questions) );
+}
+
 // - Save to local storage (call)
-questions.push(questionBlock);
-localStorage.setItem('ListOfQuestions', JSON.stringify(questions) );
+storeQuestion(questionObject);
 
 // - Render list of responses function (call)
-
 
 // Validate form input
 // - Input cannot be blank, must contain at least 3 words, and must end with a ?
 // - Return true or false if submit was valid or not
 function validate() 
 {
-    var question = document.getElementById('submitData').value;
-    document.getElementById("error").innerText = "";
+    const question = document.getElementById('submitData').value;
+    const errorElement = document.getElementById("error");
     errorMsg = "Please type a valid question below, and don't forget the '?' at the end!"
+    errorElement.innerText = errorMsg;
 
     if (question == "") {
         // - Add error for blank data.
-        document.getElementById("error").innerText = errorMsg;
+        errorElement.innerText = errorMsg;
         return false;
     } else if (question.length < 3) {
         // - Add error for value less that 3.
-        document.getElementById("error").innerText = errorMsg;
+        errorElement.innerText = errorMsg;
         return false;
     }else if (question.endsWith("?") == false) {
         // - Add error for questions not ending with question mark.
-        document.getElementById("error").innerText = errorMsg;
+        errorElement.innerText = errorMsg;
         return false;
     }
 
     return true;
-
 }
 
 // Get a random answer
@@ -75,6 +77,8 @@ function randomAnswer()
 
     // Render answer below the form
     document.getElementById("userQuestion").innerHTML = question;
+
+    
 
     return response;
 }

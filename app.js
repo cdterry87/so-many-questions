@@ -72,11 +72,13 @@ document.addEventListener("DOMContentLoaded", function(){
   // function to change the value and color of the send button to a clear button to clear the input field
   function setButton() {
 
-    // grab and set the id attribute of the submit button accordingly
+    // grab the button element
     let myButton = document.getElementById("sendBtn");
 
+    // check to see which version of the button is present
     if (myButton.innerHTML === "Send") {
 
+      // change the button to say clear and change background color
       myButton.innerHTML = "Clear";
       myButton.style.backgroundColor  = "#F2CA03";
 
@@ -84,8 +86,10 @@ document.addEventListener("DOMContentLoaded", function(){
 
     } else if (myButton.innerHTML === "Clear") {
 
+      // change the button to say send, change the background, and set focus on the input
       myButton.innerHTML = "Send";
       myButton.style.backgroundColor  = "#19E895";
+      document.getElementById("userQuestion").focus();
 
       return false;
 

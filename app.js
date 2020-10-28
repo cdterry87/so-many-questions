@@ -23,15 +23,85 @@ const populateAnswer = (question) => {
     document.getElementById('questionResponse').innerText = question.value;
     document.getElementById('answerResponse').innerText = answer;
 
-    // Clearing the question field
-    question.value = '';
-}
+    return answer;
+};
 
-// Handle the form submission
-// - Create an object for the response with the following properties: { question, answer, liked, date }
-// - Save to local storage (call)
-// - Render list of responses function (call)
+// Adding to Local Storage Handler
+const storeUserData = (question, answer) => {
+    let responses = getUserData();
+
+    responses.push({
+        question: question,
+        answer: answer,
+        liked: false,
+        date: Date.now()
+    });
+
+    localStorage.setItem('userData', JSON.stringify(responses));
+};
+
+// Getting from Local Storage Handler
+const getUserData = () => {
+    let responses = localStorage.getItem('userData');
+
+    if (responses === null) {
+        return [];
+    }
+
+    return JSON.parse(responses);
+};
+
+const renderPreviousQuestions = () => {
+    let prevRespDiv = document.getElementById('previousResponses');
+    let responses = getUserData();
+
+    prevRespDiv.innerHTML = '';
+
+    if (responses.length == 0) {
+        prevRespDiv.innerText = 'Your previous responses will appear here!';
+        return;
+    }
+
+    let previousResponses = document.createElement('div');
+    previousResponses.classList.add('columns', 'is-multiline');
+
+    let renderedResponses = '';
+    for(i = 0; i < responses.length; i++) {
+        previousResponses.insertAdjacentHTML('beforeend', createQuestionCard(responses[i]));
+    }
+
+    prevRespDiv.appendChild(previousResponses);
+};
+
+const createQuestionCard = (data) => {
+    return `
+    <div class="column is-one-third">
+        <div class="card">
+            <div class="card-content">
+            <p>${data.question}</p>
+            <p class="is-size-3">${data.answer}</p>
+            </div>
+            <footer class="card-footer">
+            <p class="card-footer-item">
+                <button class="button has-text-info is-fullwidth">
+                    Like
+                </button>
+            </p>
+            <p class="card-footer-item">
+                <button class="button has-text-danger is-fullwidth">
+                    Delete
+                </button>
+            </p>
+            </footer>
+        </div>
+    </div>
+    `;
+};
+
+// Initial App Setup
 window.addEventListener('load', (event) => {
+    renderPreviousQuestions();
+
     document.getElementById('questionForm').addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -67,30 +137,16 @@ window.addEventListener('load', (event) => {
             return;
         }
 
-        populateAnswer(question);
+        let answer = populateAnswer(question);
+        storeUserData(question.value, answer);
+
+        // Clearing the question field
+        question.value = '';
+
+        // Rendering new element
+        renderPreviousQuestions();
     });
 });
-
-
-// Validate form input
-// - Input cannot be blank, must contain at least 3 words, and must end with a ?
-// - Return true or false if submit was valid or not
-
-
-// Get a random answer
-// - Define your random array of answers in this function and return the random answer
-
-
-// Render answer below the form
-
-
-// Save responses in localstorage
-
-
-// Get responses from localstorage
-
-
-// Render list of responses
 
 
 // Toggle like

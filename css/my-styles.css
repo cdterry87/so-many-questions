@@ -1,0 +1,235 @@
+html, body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  grid-template-columns: auto;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #000000, #024A2D, #000000);
+  background-size: 600% 600%;
+  -webkit-animation: cardGradient 25s ease infinite;
+  -moz-animation: cardGradient 25s ease infinite;
+  animation: cardGradient 25s ease infinite;
+  border-radius: 5px;
+}
+
+@-webkit-keyframes cardGradient {
+ 0%{background-position:0% 99%}
+ 50%{background-position:100% 2%}
+ 100%{background-position:0% 99%}
+}
+
+@-moz-keyframes cardGradient {
+ 0%{background-position:0% 99%}
+ 50%{background-position:100% 2%}
+ 100%{background-position:0% 99%}
+}
+
+@keyframes cardGradient {
+ 0%{background-position:0% 99%}
+ 50%{background-position:100% 2%}
+ 100%{background-position:0% 99%}
+}
+
+.main-outer-container {
+  height: 95%;
+  width: 95%;
+  text-align: center;
+  margin: 15px 15px 15px 15px;
+
+}
+
+
+div.header {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 45px;
+  font-weight: lighter;
+  color:#E6FAF1;
+  margin-bottom: 1.5vw;
+}
+
+.question-container {
+  display: inline-block;
+  width: 85%;
+  height: 25%;
+  background: #F7FCFA;
+  border-radius: 7px;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 1.2em;
+  font-weight: light;
+  box-shadow: inset -12px -8px 40px #464646;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 15px;
+  margin-bottom: 1.5vw;
+}
+
+input[type="text"] {
+  width: 30vw;
+  height: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding-right: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+button {
+  margin-left: -57px;
+  height: 29px;
+  width: 50px;
+  background: #19E895;
+  color: #E0FFF3;
+  border: 0;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+hr {
+  width: 50%;
+  color: #DAE0E6;
+}
+
+.question-footer {
+  font-size: .85em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.previous-question-header {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 25px;
+  font-weight: lighter;
+  color:#E6FAF1;
+  margin-bottom: 1.5vw;
+}
+
+/* Start of the previous questions cards */
+
+.flip-card {
+ background-color: transparent;
+ width: 300px;
+ height: 200px;
+ border: 5px solid #FFFFFF;
+ border-radius: 3px;
+ perspective: 20000px;
+ position:relative;
+}
+
+.flip-card-inner {
+ position: relative;
+ width: 100%;
+ height: 100%;
+ text-align: center;
+ transition: transform 0.8s;
+ transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+ transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+}
+
+.flip-card-back {
+ background-color: white;
+ color: black;
+ transform: rotateY(180deg);
+ /* border-radius: 28px; */
+}
+
+span.card-question {
+  font-size: .75em;
+}
+
+span.card-answer {
+  font-size: .75em;
+}
+
+.unliked-card {
+  display: none;
+}
+
+.card-like-active-front {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: -25
+}
+
+.card-like-active-back {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: -25
+}
+
+h3 {
+  font-size: 15px;
+}
+
+#likeBtn {
+  background: #F2C709;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 3.8vw;
+  padding: 3px 3px 3px 3px;
+  cursor: pointer;
+}
+
+#deleteBtn {
+  background: #FF425E;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 3.8vw;
+  padding: 3px 3px 3px 3px;
+  cursor: pointer;
+}
+
+.liked-label {
+  font-size: 10px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+
+/* Start of the the previous questions container */
+.previous-questions-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 25px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+#error-message {
+  font-size: .65em;
+  display: block;
+  margin-top: 10px;
+  color: #FA3C5C;
+  display: none;
+}

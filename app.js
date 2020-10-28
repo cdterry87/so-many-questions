@@ -18,26 +18,31 @@ const submit = document.getElementById("submit");
 submit.addEventListener('click', function(event) {
     if ( validate() ) {
         randomAnswer();
+        storeQuestion();
     }
     document.getElementById("questions").reset();
 });
 
 // - Create an object for the response with the following properties: { question, answer, liked, date }
-const questionObject = {
-    "question": document.getElementById('submitData').value,
-    "answer": document.getElementById("answer").innerText,
-    "liked": false,
-    "date": Date.now()
-};
-
-function storeQuestion(input) {
-    localStorage.setItem('ListOfQuestions', JSON.stringify(questions) );
-}
-
 // - Save to local storage (call)
-storeQuestion(questionObject);
-
 // - Render list of responses function (call)
+let questions = [];
+function storeQuestion() {
+
+    let questionObject = {
+        "question": document.getElementById('submitData').value,
+        "answer": document.getElementById("answer").innerText,
+        "liked": false,
+        "date": Date.now()
+    };
+
+    // Save question to questions array
+    questions.push(questionObject);
+
+    // Save to localstorage
+    localStorage.setItem('ListOfQuestions', JSON.stringify(questions) );
+
+}
 
 // Validate form input
 // - Input cannot be blank, must contain at least 3 words, and must end with a ?
@@ -47,7 +52,6 @@ function validate()
     const question = document.getElementById('submitData').value;
     const errorElement = document.getElementById("error");
     errorMsg = "Please type a valid question below, and don't forget the '?' at the end!"
-    errorElement.innerText = errorMsg;
 
     if (question == "") {
         // - Add error for blank data.
@@ -68,7 +72,6 @@ function validate()
 
 // Get a random answer
 // - Define your random array of answers in this function and return the random answer
-let questions = [];
 function randomAnswer() 
 {
     var question = document.getElementById("submitData").value;
@@ -77,8 +80,6 @@ function randomAnswer()
 
     // Render answer below the form
     document.getElementById("userQuestion").innerHTML = question;
-
-    
 
     return response;
 }

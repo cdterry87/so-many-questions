@@ -29,11 +29,8 @@ document.addEventListener("DOMContentLoaded", function(){
       // generate timestamp
       let timeStamp = moment().format('YYYY-M-D, @ h:mm');
 
-      // format the question (capitalize first letter of each word)
-      let formattedQuestion = validatedQuestion.replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase());
-
       // create the object to be stored
-      let questionCard = new ResponseCard(formattedQuestion, newAnswer, timeStamp);
+      let questionCard = new ResponseCard(validatedQuestion, newAnswer, timeStamp);
 
       // push new object to the array
       responseArray.push(questionCard);
@@ -60,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function(){
   });// end of click event for the "Send" button
 
 
+  // function to write to local storage
   function writeToStorage(arr) {
 
     // write to local storage
@@ -68,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
 
-  // function to validate the form
+  // function to validate the question
   function validateQuestion() {
 
     // get the value of the input field

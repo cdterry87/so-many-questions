@@ -65,6 +65,7 @@ input[type="text"] {
   padding-bottom: 5px;
   padding-left: 10px;
   border-radius: 5px;
+  text-transform: capitalize;
 }
 
 button#sendBtn {
@@ -151,6 +152,7 @@ hr {
   background-color: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
   border: 3px groove  #fff;
+  text-transform: capitalize;
 }
 
 .flip-card-back {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="has-background-white-ter">
   <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>So Many Questions!</title>
     <link rel="stylesheet" href="css/my-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="main-outer-container">
@@ -15,39 +17,14 @@
         <div>
           <input type="text" id="userQuestion" placeholder="Hint: Only Ask Yes/No Questions" />
 			    <button type="button" id="sendBtn">Send</button>
+          &nbsp;
+          <button type="button" id="clearBtn">Clear Question</button>
           <hr>
-          <div id="question-footer">The Answer To Your Question Will Appear Here!</div>
+          <div id="questionFooter">The Answer To Your Question Will Appear Here!</div>
         </div>
       </div>
       <div class="previous-question-header">Previous Responses</div>
-      <div class="previous-questions-container">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <h2 class="question-header">
-                <label>Question:</label>
-                <span class="card-like-active-front">
-                  &#128077;
-                  <span class="liked-label">Liked</span>
-                </span>
-              </h2>
-              <h3 class="card-question">Will Today Be A Good Day?</h3>
-              <br>
-              <span class='timestamp' style="font-size: 12px;"><b>Asked on 2020-10-12 @ 20:54</b></span>
-            </div>
-            <div class="flip-card-back">
-              <h2 class="answer-header">
-                <label>Answer</label>
-                <span class="card-like-active-back">
-                  &#128077;<span class="liked-label">liked</span>
-                </span>
-              </h2>
-              <h3 class="card-answer">Yes, Absolutely!</h3>
-                <input type="button" class="response-btn" id="likeBtn" value="Like"><input type="button" class="response-btn" id="deleteBtn" value="Delete">
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="previous-questions-container"></div>
       <br><br>
     </div>
     <script src="./app.js"></script>

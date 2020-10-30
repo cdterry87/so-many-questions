@@ -5,18 +5,8 @@ html, body {
   grid-template-columns: auto;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #000000, #024A2D, #000000);
-  background-size: 600% 600%;
-  -webkit-animation: cardGradient 25s ease infinite;
-  -moz-animation: cardGradient 25s ease infinite;
-  animation: cardGradient 25s ease infinite;
-  border-radius: 5px;
-}
-
-@-webkit-keyframes cardGradient {
- 0%{background-position:0% 99%}
- 50%{background-position:100% 2%}
- 100%{background-position:0% 99%}
+  background: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
+  background-attachment: fixed;
 }
 
 @-moz-keyframes cardGradient {
@@ -53,6 +43,7 @@ div.header {
   width: 85%;
   height: 25%;
   background: #F7FCFA;
+  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
   border-radius: 7px;
   font-family: Tahoma, Arial, sans-serif;
   font-size: 1.2em;
@@ -62,41 +53,54 @@ div.header {
   font-weight: 500;
   padding-top: 15px;
   margin-bottom: 1.5vw;
+  padding-bottom: 20px;
 }
 
 input[type="text"] {
-  width: 30vw;
-  height: 20px;
+  width: 25vw;
+  height: 22px;
   margin-top: 5px;
-  margin-bottom: 15px;
   padding-right: 150px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
+  border-radius: 5px;
 }
 
-button {
-  margin-left: -57px;
+button#sendBtn {
+  margin-left: -59px;
   height: 29px;
   width: 50px;
   background: #19E895;
   color: #E0FFF3;
   border: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   -webkit-appearance: none;
   cursor: pointer;
   font-weight: bolder;
+  margin-top: 3px;
+}
+
+#clearBtn {
+  background-color: #F2CA03;
+  color: #000;
+  height: 24px;
+  border-radius: 10px;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: .5px;
 }
 
 hr {
-  width: 50%;
+  width: 60%;
   color: #DAE0E6;
 }
 
-.question-footer {
+#questionFooter {
   font-size: .85em;
   padding-left: 5px;
   padding-right: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .previous-question-header {
@@ -113,10 +117,11 @@ hr {
  background-color: transparent;
  width: 300px;
  height: 200px;
- border: 5px solid #FFFFFF;
- border-radius: 3px;
- perspective: 20000px;
+ border-radius: 13px;
  position:relative;
+ perspective: 1500px;
+
+
 }
 
 .flip-card-inner {
@@ -124,7 +129,7 @@ hr {
  width: 100%;
  height: 100%;
  text-align: center;
- transition: transform 0.8s;
+ transition: transform 1.2s;
  transform-style: preserve-3d;
 }
 
@@ -138,19 +143,22 @@ hr {
  height: 100%;
  -webkit-backface-visibility: hidden;
  backface-visibility: hidden;
+ border-radius: 10px;
 }
 
 .flip-card-front {
-  background-color: black;
   color: white;
-  border-radius: 3px;
+  background-color: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+  border: 3px groove  #fff;
 }
 
 .flip-card-back {
  background-color: white;
  color: black;
  transform: rotateY(180deg);
- /* border-radius: 28px; */
+ border: 3px groove  #000;
+ background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
 }
 
 span.card-question {
@@ -185,6 +193,18 @@ span.card-answer {
   width: -25
 }
 
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
+.timestamp {
+  font-size: 15px;
+}
+
 h3 {
   font-size: 15px;
 }
@@ -216,7 +236,7 @@ h3 {
 
 
 /* Start of the the previous questions container */
-.previous-questions-container {
+#previous-questions-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 25px;

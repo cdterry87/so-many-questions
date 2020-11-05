@@ -1,10 +1,9 @@
 // an array of responses
 const answers = ['Yes, Most Definitely!', 'Not Sure, Ask Again Later.', 'Probably Not.', 'Maybe For Five Bucks!', 'Yes, Without A Doubt!', 'No Way!', 'Don\'t Count On It!', 'I Don\'t Think So.', 'Oh Yeah, For Sure!', 'Results Inconclusive!', 'Maybe Later.', 'Yes, But Not For Long.', 'Not A Chance!', 'More Than Likely No.', 'More Than Likely Yes.'];
 
-
 // on page load
 document.addEventListener("DOMContentLoaded", function(){
-
+  
   // array of responses
   let  responseArray = retrieveStorage();
 

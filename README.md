@@ -22,4 +22,6 @@ I believe that practice doesn't make perfect, but it does make you a heck of a l
 
 First, fork the repository by clicking the "Fork" button at the top right of the page.
 
-Next, come back to this repository and take a look at the Issues page.  Start with Issue #1, and once you're finished submit your Pull Request.  Then move onto Issue #2.  Then, just repeat this process until you've completed all the issues!
+Next, come back to this repository and take a look at the Issues page.  
+
+Start with Issue #1, create a new branch in your repository for Issue #1, make your changes and commit them, and once you're finished submit your Pull Request.  Then move onto Issue #2, repeat the steps above, and continue until you have made a Pull Request for each issue. That's it!  Have fun :)

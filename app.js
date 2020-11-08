@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
 
       newLocalStorage[selectedCardID].liked = false;
-      
+
     }
 
     // send new array to storage

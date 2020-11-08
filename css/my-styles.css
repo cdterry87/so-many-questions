@@ -211,7 +211,7 @@ h3 {
   font-size: 15px;
 }
 
-#likeBtn {
+.like-btn {
   background: #F2C709;
   border-radius: 5px;
   margin-right: 5px;
@@ -220,8 +220,17 @@ h3 {
   padding: 3px 3px 3px 3px;
   cursor: pointer;
 }
+/* #likeBtn {
+  background: #F2C709;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 3.8vw;
+  padding: 3px 3px 3px 3px;
+  cursor: pointer;
+} */
 
-#deleteBtn {
+.delete-btn {
   background: #FF425E;
   border-radius: 5px;
   margin-right: 5px;
@@ -230,6 +239,15 @@ h3 {
   padding: 3px 3px 3px 3px;
   cursor: pointer;
 }
+/* #deleteBtn {
+  background: #FF425E;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  width: 3.8vw;
+  padding: 3px 3px 3px 3px;
+  cursor: pointer;
+} */
 
 .liked-label {
   font-size: 10px;

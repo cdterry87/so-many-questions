@@ -6,11 +6,7 @@ html, body {
   width: 100%;
   height: 100%;
   background: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
-  background-size: 300% 300%;
-  -webkit-animation: cardGradient 45s ease infinite;
-  -moz-animation: cardGradient 45s ease infinite;
-  animation: cardGradient 45s ease infinite;
-  border-radius: 5px;
+  background-attachment: fixed;
 }
 
 @-moz-keyframes cardGradient {
@@ -61,18 +57,18 @@ div.header {
 }
 
 input[type="text"] {
-  width: 30vw;
+  width: 25vw;
   height: 22px;
   margin-top: 5px;
-  margin-bottom: 15px;
   padding-right: 150px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
   border-radius: 5px;
+  text-transform: capitalize;
 }
 
-button {
+button#sendBtn {
   margin-left: -59px;
   height: 29px;
   width: 50px;
@@ -86,8 +82,17 @@ button {
   margin-top: 3px;
 }
 
+#clearBtn {
+  background-color: #F2CA03;
+  color: #000;
+  height: 24px;
+  border-radius: 10px;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  letter-spacing: .5px;
+}
+
 hr {
-  width: 50%;
+  width: 60%;
   color: #DAE0E6;
 }
 
@@ -96,6 +101,7 @@ hr {
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .previous-question-header {
@@ -113,8 +119,10 @@ hr {
  width: 300px;
  height: 200px;
  border-radius: 13px;
- perspective: 20000px;
  position:relative;
+ perspective: 1500px;
+
+
 }
 
 .flip-card-inner {
@@ -122,7 +130,7 @@ hr {
  width: 100%;
  height: 100%;
  text-align: center;
- transition: transform 0.8s;
+ transition: transform 1.2s;
  transform-style: preserve-3d;
 }
 
@@ -143,14 +151,15 @@ hr {
   color: white;
   background-color: linear-gradient(230deg, #a24bcf, #4b79cf, #4bc5cf);
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
-  border: 2px groove;
+  border: 3px groove  #fff;
+  text-transform: capitalize;
 }
 
 .flip-card-back {
  background-color: white;
  color: black;
  transform: rotateY(180deg);
- border: 2px groove;
+ border: 3px groove  #000;
  background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
 }
 
@@ -186,6 +195,18 @@ span.card-answer {
   width: -25
 }
 
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
+}
+
+.timestamp {
+  font-size: 15px;
+}
+
 h3 {
   font-size: 15px;
 }
@@ -217,7 +238,7 @@ h3 {
 
 
 /* Start of the the previous questions container */
-.previous-questions-container {
+#previous-questions-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 25px;
